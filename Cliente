@@ -1,0 +1,109 @@
+package sp;
+class Cliente {
+    private String nome;
+    private String email;
+    private String endereco;
+    private String telComercial;
+    private String telResidencial;
+    private PerfilCliente perfil;
+
+    public Cliente(String nome, String email, String endereco, String telComercial, String telResidencial) {
+        this.nome = nome;
+        this.email = email;
+        this.endereco = endereco;
+        this.telComercial = telComercial;
+        this.telResidencial = telResidencial;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public String getTelComercial() {
+        return telComercial;
+    }
+
+    public String getTelResidencial() {
+    	return telResidencial;
+    }
+    public PerfilCliente getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(PerfilCliente perfil) {
+        this.perfil = perfil;
+    }
+
+    public void associarPerfil(PerfilCliente perfil) {
+        this.perfil = perfil;
+    }
+
+    public PerfilCliente obterPerfil() {
+        return perfil;
+    }
+
+    public void popular(String child) {
+        System.out.println("Informações do cliente populadas.");
+    }
+
+    public void preencher(String regDB) {
+        System.out.println("Informações do cliente preenchidas no banco de dados.");
+    }
+}
+
+class PerfilCliente {
+    private boolean fumante;
+    private String preferenciaCategoriaVeic;
+
+    public PerfilCliente(boolean fumante, String preferenciaCategoriaVeic) {
+        this.fumante = fumante;
+        this.preferenciaCategoriaVeic = preferenciaCategoriaVeic;
+    }
+
+    public boolean isFumante() {
+        return fumante;
+    }
+
+    public String getPreferenciaCategoriaVeic() {
+        return preferenciaCategoriaVeic;
+    }
+
+    public void popular(String child) {
+        System.out.println("Informações do perfil de cliente populadas");
+    }
+
+    public void preencher(String regDB) {
+        System.out.println("Informações do perfil de cliente preenchidas no banco de dados");
+    }
+
+    public void setarPai(Cliente cliente) {
+        cliente.setPerfil(this);
+    }
+} 
+
+public class Main {
+    public static void main(String[] args) {
+        PerfilCliente perfil = new PerfilCliente(true, "SUV");
+        Cliente cliente = new Cliente("João", "joao@example.com", "Rua A, 123", "123456789", "554564512");
+        
+        perfil.setarPai(cliente);
+
+        System.out.println("Informações do cliente:");
+        System.out.println("Nome: " + cliente.getNome());
+        System.out.println("Email: " + cliente.getEmail());
+        System.out.println("Endereço: " + cliente.getEndereco());
+        System.out.println("Telefone Comercial: " + cliente.getTelComercial());
+        System.out.println("Telefone Residencial: " + cliente.getTelResidencial());
+        System.out.println("Informações do perfil de cliente:");
+        System.out.println("Fumante: " + perfil.isFumante());
+        System.out.println("Preferência de Categoria de Veículo: " + perfil.getPreferenciaCategoriaVeic());
+    }
+}

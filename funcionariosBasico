@@ -1,0 +1,76 @@
+interface Trabalhador {
+    void trabalhar();
+}
+
+abstract class Funcionario implements Trabalhador {
+    private String nome;
+    private double salario;
+
+
+public Funcionario(String nome, double salario){
+    this.nome = nome;
+    this.salario = salario;
+}
+
+public String getNome(){
+    return nome;
+}
+
+public Double getSalario(){
+    return salario;
+}
+
+public abstract void realizarTarefa();
+}
+
+class Desenvolvedor extends Funcionario{
+    public Desenvolvedor(String nome, double salario){
+        super(nome, salario);
+    }
+    
+    @Override
+    public void realizarTarefa(){
+        System.out.println(getNome() + " está desenvolvendo código");
+    }
+    
+    @Override
+    public void trabalhar(){
+        realizarTarefa();
+        System.out.println("Reuniões de equipe sobre o progresso do projeto");
+    }
+}
+
+class Gerente extends Funcionario{
+    public Gerente(String nome, double salario){
+        super(nome, salario);
+    }
+    
+    @Override
+    public void realizarTarefa(){
+        System.out.println(getNome() + " coordenando a quipe");
+    }
+    
+    @Override
+    public void trabalhar(){
+        realizarTarefa();
+            System.out.println("Reuniões estratégicas");
+        }
+    }
+    
+    public class Main{
+        public static void main(String [] args){
+            Funcionario desenvolvedor = new Desenvolvedor("Gean", 5000);
+            Funcionario gerente = new Gerente ("Bob", 8000);
+            
+            desenvolvedor.trabalhar();
+            System.out.println("Salario R$" + desenvolvedor.getSalario());
+            System.out.println();
+            gerente.trabalhar();
+            System.out.println("Salario R$" + gerente.getSalario());
+            
+            
+        }
+    }
+
+
+

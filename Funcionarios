@@ -11,8 +11,7 @@ class Funcionario {
     private String horarioTrabalho;
     private double salario;
 
-    public Funcionario(String nome, String cpf, String contaBancaria, String agenciaBancaria,
-                       String cargo, String funcoes, String horarioTrabalho) {
+    public Funcionario(String nome, String cpf, String contaBancaria, String agenciaBancaria, String cargo, String funcoes, String horarioTrabalho) {
         this.nome = nome;
         this.cpf = cpf;
         this.contaBancaria = contaBancaria;

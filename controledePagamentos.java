@@ -41,6 +41,7 @@ public class ControlePagamentos{
 		        double valor = scanner.nextDouble();
 		        System.out.println("Data de pagamento: ");
 		        String dataPagamento= scanner.nextLine();
+			pagamentos.add(new Pagamento(nomeFuncionario, valor, dataPagamento));
 		    }else if(opcao == 2){
 		       for(Pagamento pagamento : pagamentos){
 		       System.out.println(pagamento);

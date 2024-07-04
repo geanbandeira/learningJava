@@ -38,12 +38,12 @@ public class ControlePagamentos{
 		        System.out.println("Nome do funcionario: ");
 		        String nomeFuncionario = scanner.nextLine();
 		        System.out.println("Entre com Salário: ");
-		        double valor = scanner.nextLine();
+		        double valor = scanner.nextDouble();
 		        System.out.println("Data de pagamento: ");
 		        String dataPagamento= scanner.nextLine();
 		    }else if(opcao == 2){
-		       for(Funcionario funcionario : funcionarios){
-		       System.out.println(funcionario);
+		       for(Pagamento pagamento : pagamentos){
+		       System.out.println(pagamento);
 		    }
 		} else if(opcao ==3){
 		    break;
@@ -54,13 +54,6 @@ public class ControlePagamentos{
 	scanner.close();
 	}
 }
-
-
-
-
-
-
-
 
 
 

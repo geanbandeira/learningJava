@@ -23,7 +23,7 @@ class Cidadao{
     }
     
     public String getEndereco(){
-        return endereco
+        return endereco;
     }
     
     public String getDataNascimento(){
@@ -32,7 +32,7 @@ class Cidadao{
     
     @Override
     public String toString(){
-        return "\n Nome" + nome + "\n CPF: " + cpf + "\n Endereço: "+ endereco + "\n Data de Nascimento: " + dataNascimento;
+        return "\n Nome: " + nome + "\n CPF: " + cpf + "\n Endereço: "+ endereco + "\n Data de Nascimento: " + dataNascimento;
     }
 }
 
@@ -93,17 +93,32 @@ public class Prefeitura{
     }
     
     private static void listarCidadao(){
+        if(cidadoes.isEmpty()){
+            System.out.println("Nunhum cidadão encontrado");
+        } else{
+            for(Cidadao cidadao : cidadoes){
+                System.out.println(cidadao);
+            }
+        }
         
     }
     
     private static void buscarCidadoes(){
-        
-    }
-    
+        System.out.println("Digite o CPF ");
+        String cpf = scanner.nextLine();
+        boolean encontrado = false;
+        for(Cidadao cidadao : cidadoes){
+            if(cidadao.getCpf().equals(cpf)){
+                System.out.println("\n Cidadão encontrado");
+                System.out.println(cidadao);
+                encontrado = true;
+                break;
+            }
+        }
+        if(!encontrado){
+            System.out.println("Cidadão não encontrado.");
+        }
     
     
     }
 }
-
-
-

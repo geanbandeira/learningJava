@@ -157,14 +157,85 @@ public class Main{
 
 
     private static void deletarJogador(){
+        System.out.println("ID do jogador para ser deletado: ");
+        String id = scanner.nextLine();
         
+        boolean encontrado  =false;
+        Iterator<Jogador> iterator = jogadores.iterator();
+        while(iterator.hasNext()){
+            Jogador jogador = iterator.next();
+            if(jogador.getId().equals(id)){
+                System.out.println();
+                iterator.remove();
+                System.out.println("Jogador removido com sucesso\n");
+                encontrado = true;
+                break;
+            }
+        }
+        if(!encontrado){
+            System.out.println("Jogador não encontrado\n");
+        }
     }
 
     private static void atualizarJogador(){
+        System.out.println("Entre com o ID do jogador: ");
+        String id = scanner.nextLine();
         
+        Jogador jogadorEncontrado = null;
+        for(Jogador jogador : jogadores){
+            if(jogador.getId().equals(id)){
+            jogadorEncontrado = jogador;
+            break;
+        }
     }
-
+    if(jogadorEncontrado == null){
+        System.out.println("Jogador nao encontrado\n");
+        return;
+    }
+    
+    System.out.println("Novo nome (Deixar em branco para manter o atual)");
+    String novoNome = scanner.nextLine();
+    if(!novoNome.isEmpty()){
+        jogadorEncontrado.setNome(novoNome);
+    }
+    
+    System.out.println("Novo Clube (Deixar em branco para manter o atual)");
+    String novoClube = scanner.nextLine();
+    if(!novoClube.isEmpty()){
+        jogadorEncontrado.setClube(novoClube);
+    }
+    
+    System.out.println("Novo Endereço");
+    String novoEndereco = scanner.nextLine();
+    if(!novoEndereco.isEmpty()){
+        jogadorEncontrado.setEndereco(novoEndereco);
+    }
+    
+    System.out.println("Nova Data de nascimento (Deixe em branco para manter o atual)");
+    String novaDataNascimento = scanner.nextLine();
+    if(!novaDataNascimento.isEmpty()){
+        jogadorEncontrado.setDataNascimento(novaDataNascimento);
+    }
+    
+    
+    System.out.println("Jogador atualizado com sucesso");
+    
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

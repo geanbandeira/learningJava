@@ -97,7 +97,7 @@ public class Main{
 }
 	
 	private static void mostrarMenu(){
-	    System.out.println("1. Cadastrar Estudante");
+	    System.out.println("\n1. Cadastrar Estudante");
 	    System.out.println("2. Listar Estudantes");
 	    System.out.println("3. Buscar Estudante");
 	    System.out.println("4. Atualizar Estudante");
@@ -184,19 +184,18 @@ public class Main{
 	    String id = scanner.nextLine();
 	    
 	    boolean encontrado = false;
-	        Iterator <Estudante> iterator = estudantes.iterator();
-	        while(iterator.hasNext()){
-	            Estudante estudante = iterator.next();
-	            if(estudante.getId().equals(id)){
-	                iterator.remove();
-	                System.out.println("Jogador deletado com sucesso");
-	                encontrado = true;
-	                break;
-	            }
+	    Iterator <Estudante> iterator = estudantes.iterator();
+	    while(iterator.hasNext()){
+	        Estudante estudante = iterator.next();
+	        if(estudante.getId().equals(id)){
+	            System.out.println("Deletado com sucesso");
+	            iterator.remove();
+	            encontrado = true;
+	            break;
 	        }
-	        if(!encontrado){
-	            System.out.println("Jogador não encontrado");
-            	}
-        	}
-	}   
+	    }   
+	if(!encontrado){
+	    System.out.println("Jogador não encontrado");
+	}
+}
 }

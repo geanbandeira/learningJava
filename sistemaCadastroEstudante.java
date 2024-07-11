@@ -196,9 +196,7 @@ public class Main{
 	        }
 	        if(!encontrado){
 	            System.out.println("Jogador não encontrado");
-            }
-        }
+            	}
+        	}
 	}   
 }
-
-

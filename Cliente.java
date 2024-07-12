@@ -41,7 +41,6 @@ class Cliente{
     }
 }
 
-
 public class Bet{
     public static ArrayList <Cliente> clientes = new ArrayList<>();
     public static Scanner scanner = new Scanner(System.in);
@@ -126,8 +125,7 @@ public class Bet{
 	    }
 	if(!encontrado){
 	    System.out.println("Cliente nao encontrado");
-    }
-	    
+    }    
 }
 	
 	private static void atualiarCliente(){
@@ -152,7 +150,6 @@ public class Bet{
 	if(!novoNome.isEmpty()){
 	    clienteEcontrado.setNome(novoNome);
 	}
-	
 }
 	private static void deletarCliente(){
 	    System.out.println("ID do Cliente: ");

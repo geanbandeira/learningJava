@@ -35,7 +35,7 @@ class Cliente{
     public void setCpf(String cpf){
         this.cpf = cpf;
     }
-    
+
     public String toString(){
         return "\nNome: " + nome + "\nID: " + id + "\nCPF: " + cpf;
     }
@@ -47,7 +47,7 @@ public class Bet{
 	public static void main(String[] args){
 	    
 	    int opcao = 0;
-	    
+
 	    do{
 	        mostrarMenu();
 	        opcao = scanner.nextInt();

@@ -144,7 +144,7 @@ public class Bet{
 	    System.out.println("Cliente não encontrado");
 	    return;
 	}
-	
+
 	System.out.println("Novo nome: (Deixe em branco para manter o nome atual)");
 	String novoNome = scanner.nextLine();
 	if(!novoNome.isEmpty()){

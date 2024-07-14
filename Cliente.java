@@ -3,156 +3,164 @@ import java.util.*;
 
 class Cliente{
     private String nome;
+    private String in;
     private String id;
-    private String cpf;
+    private String endereco;
+    private String dataNascimento;
 
-    public Cliente(String nome, String id, String cpf){
-        this.nome= nome;
+    public Cliente(String nome, String in, String id, String endereco, String dataNascimento){
+        this.nome = nome;
+        this.in = in;
         this.id = id;
-        this.cpf = cpf;
+        this.endereco = endereco;
+        this.dataNascimento = dataNascimento;
     }
-    
+
     public String getNome(){
         return nome;
     }
-    
+
     public void setNome(String nome){
         this.nome = nome;
     }
+
+    public String getIn(){
+        return in;
+    }
+    
+    public void setIn(String in){
+        this.in = in;
+    }
     
     public String getId(){
-        return nome;
+        return id;
     }
     
     public void setId(String id){
         this.id = id;
     }
     
-    public String getCpf(){
-        return cpf;
+    public String getEndereco(){
+        return endereco;
     }
     
-    public void setCpf(String cpf){
-        this.cpf = cpf;
+    public void setEndereco(String endereco){
+        this.endereco = endereco;
     }
-
+    
+    public String getDataNascimento(){
+        return dataNascimento;
+    }
+    
+    public void setDataNascimento(String dataNascimento){
+        this.dataNascimento = dataNascimento;
+    }
+    
     public String toString(){
-        return "\nNome: " + nome + "\nID: " + id + "\nCPF: " + cpf;
+        return "\nNome: " + nome + "\nIN: " + in + "\nID" + id + "\nEndereço: " + endereco + "\nData de nascimento: " + dataNascimento;
     }
 }
 
-public class Bet{
-    public static ArrayList <Cliente> clientes = new ArrayList<>();
+public class Main{
+    public static ArrayList<Cliente> clientes = new ArrayList<>();
     public static Scanner scanner = new Scanner(System.in);
-	public static void main(String[] args){
+	public static void main(String[] args) {
 	    
 	    int opcao = 0;
-
+	    
 	    do{
-	        mostrarMenu();
-	        opcao = scanner.nextInt();
-	        scanner.nextLine();
-	        
-	        switch(opcao){
-	            case 1:
-	                cadastrarCliente();
-	                break;
-	            case 2:
-	                listarClientes();
-	                break;
-	            case 3:
-	                buscarCliente();
-	                break;
-	            case 4:
-	                atualiarCliente();
-	                break;
-	            case 5:
-	                deletarCliente();
-	                break;
-	            case 0:
-	                System.out.println("Saindo...");
-	            default:
-	                System.out.println("Opçao Invalida. Tente novamente");
-	        }
-	    }while(opcao !=0 );
-	}
+	    mostrarMenu();
+	    opcao = scanner.nextInt();
+	    scanner.nextLine();
+	    
+	    switch(opcao){
+	        case 1:
+	            cadastrarCustomer();
+	            break;
+	        case 2:
+	            listarCustomers();
+	            break;
+	        case 3:
+	            buscarCustomer();
+	            break;
+	        case 4:
+	            atualizarCustomer();
+	            break;
+	        case 5:
+	            deletarCustomer();
+	            break;
+	        case 0:
+	            System.out.println("Saindo...");
+	            break;
+	        default:
+	            System.out.println("Opçao invalida, tente novamente");
+	            break;
+	    }
+	}while(opcao != 0);
+}
 	
 	private static void mostrarMenu(){
-        System.out.println("\n1. Cadastrar Cliente");
-        System.out.println("2. Listar Clientes");
-        System.out.println("3. Buscar Cliente");
-        System.out.println("4. Atualizar Cliente");
-        System.out.println("5. Deletar Cliente");
-        System.out.println("Escolha uma das opçoes");
+	    System.out.println("\n1. Cadastrar Cliente");
+	    System.out.println("2. Listar Cliente");
+	    System.out.println("3. Buscar Cliente");
+	    System.out.println("4. Atualizar Cliente");
+	    System.out.println("5. Deletar Cliente");
+	    System.out.println("Escolha uma das Opçoes\n");
 	}
 	
-	private static void cadastrarCliente(){
+	private static void cadastrarCustomer(){
 	    System.out.println("Nome: ");
 	    String nome = scanner.nextLine();
+	    System.out.println("IN: ");
+	    String in = scanner.nextLine();
 	    System.out.println("ID: ");
 	    String id = scanner.nextLine();
-	    System.out.println("CPF: ");
-	    String cpf = scanner.nextLine();
+	    System.out.println("Endereço: ");
+	    String endereco = scanner.nextLine();
+	    System.out.println("Data de nascimento: ");
+	    String dataNascimento = scanner.nextLine();
 	    
-	    Cliente cliente = new Cliente(nome, id, cpf);
+	    Cliente cliente = new Cliente(nome, in, id, endereco, dataNascimento);
 	    clientes.add(cliente);
 	    System.out.println("Cliente cadastrado com sucesso");
+	    
 	}
 	
-	private static void listarClientes(){
+	private static void listarCustomers(){
 	        if(clientes.isEmpty()){
-	            System.out.println("Nenhum cliente cadastrado\n");
+	            System.out.println("Nenhum cliente cadastrado");
 	        }else{
-	            System.out.println("\n-- Lista de Clientes --\n");
+	            System.out.println("\n-- Lista de clientes --\n");
 	            for(Cliente cliente : clientes){
-	            System.out.println(cliente);
+	                System.out.println(cliente);
+	                break;
+	            }
 	        }
-	    }
 	}
 	
-	private static void buscarCliente(){
-	    System.out.println("Entre com o ID: ");
-	    String id = scanner.nextLine();
+	private static void buscarCustomer(){
+	    System.out.println("IN: ");
+	    String in = scanner.nextLine();
 	    
 	    boolean encontrado = false;
 	    for(Cliente cliente : clientes){
-	        if(cliente.getId().equals(id)){
-	            System.out.println("\nJogador encontrado\n");
+	        if(cliente.getIn().equals(in)){
 	            System.out.println(cliente);
 	            encontrado = true;
 	            break;
 	        }
 	    }
-	if(!encontrado){
-	    System.out.println("Cliente nao encontrado");
-    }    
-}
+	    if(!encontrado){
+	        System.out.println("Nenhum cliente encontrado\n");
+	    }
+	}
 	
-	private static void atualiarCliente(){
-	    System.out.println("ID do cliente: ");
-	    String id = scanner.nextLine();
+	private static void atualizarCustomer(){
 	    
-	    Cliente clienteEcontrado = null;
-	    for(Cliente cliente : clientes){
-	        if(clientes.isEmpty()){
-	        clienteEcontrado = cliente;
-	        break;
-	    } 
 	}
 	
-	if(clienteEcontrado == null){
-	    System.out.println("Cliente não encontrado");
-	    return;
-	}
-
-	System.out.println("Novo nome: (Deixe em branco para manter o nome atual)");
-	String novoNome = scanner.nextLine();
-	if(!novoNome.isEmpty()){
-	    clienteEcontrado.setNome(novoNome);
-	}
-}
-	private static void deletarCliente(){
-	    System.out.println("ID do Cliente: ");
+	private static void deletarCustomer(){
+	    System.out.println("ID: ");
 	    String id = scanner.nextLine();
 	    
 	    boolean encontrado = false;
@@ -161,7 +169,7 @@ public class Bet{
 	        Cliente cliente = iterator.next();
 	        if(cliente.getId().equals(id)){
 	            iterator.remove();
-	            System.out.println("\nCliente deletado com sucesso\n");
+	            System.out.println("\nExcluido com sucesso\n");
 	            encontrado = true;
 	            break;
 	        }
@@ -169,5 +177,6 @@ public class Bet{
 	    if(!encontrado){
 	        System.out.println("\nCliente não encontrado\n");
 	    }
-	}
+    }
 }
+

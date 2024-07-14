@@ -38,7 +38,6 @@ public class Main{
 	public static void main(String[] args) {
 
     int opcao = 0;
-    
     do{
         mostrarMenu();
         opcao = scanner.nextInt();
@@ -98,8 +97,7 @@ public class Main{
             for(Usuario usuario : usuarios){
                 System.out.println(usuario);
             }
-        }
-        
+	}
     }
     
     private static void buscarUsuario(){
@@ -134,7 +132,6 @@ public class Main{
             System.out.println("Usuario não encontrado");
             return;
         }
-        
         
         System.out.println("Novo nome: (Deixe em branco para manter o atual)\n");
         String novoNome = scanner.nextLine();

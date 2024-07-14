@@ -7,7 +7,7 @@ class Customer{
     private String id;
     private String endereco;
     private String dataNascimento;
-    
+
     public Customer(String nome, String in, String id, String endereco, String dataNascimento){
         this.nome = nome;
         this.in = in;

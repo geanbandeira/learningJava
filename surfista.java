@@ -134,7 +134,7 @@ public class Main{
 	    Surfista surfistaEncontrado = null;
 	    
 	    for(Surfista surfista : surfistas){
-	        if(surfistas.isEmpty()){
+	        if(surfista.getId().equals(id)){
 	            surfistaEncontrado = surfista;
 	            break;
 	        }
@@ -149,7 +149,7 @@ public class Main{
 	    if(!novoNome.isEmpty()){
 	        surfistaEncontrado.setNome(novoNome);
 	    }
-	
+	    System.out.println("Dados atualizado com sucesso");
     }
     
     private static void deletarSurfista(){

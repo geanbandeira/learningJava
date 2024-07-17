@@ -138,7 +138,6 @@ public class Main{
 	            }
 	        }
 	}
-	
 	private static void buscarCliente(){
 	    System.out.println("IN: ");
 	    String in = scanner.nextLine();
@@ -179,7 +178,6 @@ public class Main{
 	}
 	System.out.println("Dados atualizado com sucesso");
 }
-	
 	private static void deletarCliente(){
 	    System.out.println("ID: ");
 	    String id = scanner.nextLine();

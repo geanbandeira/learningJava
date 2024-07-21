@@ -8,7 +8,7 @@ import java.util.Scanner;
     public Apostador(String nome, String id){
         this.nome = nome;
         this.id = id;
-        
+
     }        
     public String getNome(){
         return nome;

@@ -119,35 +119,112 @@ public class Main{
 	}
 	
 	private static void mostrarMenu(){
-	    System.out.println("");
+	    System.out.println("1. Cadastrar tenista");
+	    System.out.println("2. Listar tenistas");
+	    System.out.println("3. Buscar tenista");
+	    System.out.println("4. Atualizar tenista");
+	    System.out.println("5. Deletar tenista");
+	    System.out.println("0. Sair");
+	    System.out.println("Escolha uma das opçoes");
 	}
 	
 	private static void cadastrarTenista(){
+	    System.out.println("Numero do Passaporte: ");
+	    String passaporte = scanner.nextLine();
 	    
+	    System.out.println("Nome: ");
+	    String nome = scanner.nextLine();
+	    System.out.println("Endereço: ");
+	    String endereco = scanner.nextLine();
+	    System.out.println("Telefone: ");
+	    String telefone = scanner.nextLine();
+	    System.out.println("Email: ");
+	    String email = scanner.nextLine();
+	    
+	    Contato contato = new Contato(nome, endereco, telefone, email);
+	    
+	    Tenista tenista = new Tenista(passaporte, contato);
+	    tenistas.add(tenista);
+	    System.out.println("Tenista cadastrado com sucesso\n");
 	}
 	
 	private static void listarTenistas(){
-	    
+	    if(tenistas.isEmpty()){
+	        System.out.println("Nenhum tenista cadastrado\n");
+	    }else{
+	        System.out.println("-- Lista de Tenistas --");
+	        for(Tenista tenista : tenistas){
+	            System.out.println(tenista);
+	            break;
+	        }
+	    }
 	}
 	
 	private static void buscarTenista(){
+	    System.out.println("Numero do Passaporte: ");
+	    String passaporte = scanner.nextLine();
 	    
+	    boolean encontrado = false;
+	    
+	    for(Tenista tenista : tenistas){
+	        if(tenista.getPassaporte().equals(passaporte)){
+	            System.out.println("Tenista encontrado\n");
+	            System.out.println(tenista);
+	            encontrado = true;
+	            break;
+	        }
+	    }
+	    if(!encontrado){
+	        System.out.println("Tenista nao encontrado\n");
+	    }
 	}
 	
 	private static void atualizarTenista(){
+	    System.out.println("Numero do passaporte: ");
+	    String passaporte = scanner.nextLine();
 	    
+	    Tenista tenistaEncontrado = null;
+	    for(Tenista tenista : tenistas){
+	        if(tenista.getPassaporte().equals(passaporte)){
+	            System.out.println("Tenista encontrado com sucesso");
+	            tenistaEncontrado = tenista;
+	        }
+	    }
+	    if(tenistaEncontrado == null){
+	        System.out.println("Tenista nao encontrado\n");
+	        return;
+	    }
+	    
+	    System.out.println("Novo Endereço: (Deixar em branco para manter o atual)\n");
+	    String novoEndereco = scanner.nextLine();
+	    if(!novoEndereco.isEmpty()){
+	        tenistaEncontrado.setPassaporte(novoEndereco);
+	    }
+	    System.out.println("Dados do tenista atualizado com sucesso\n");
 	}
 	
 	private static void deletarTenista(){
+	    System.out.println("Numero do passaporte: ");
+	    String passaporte = scanner.nextLine();
+	   
+	    boolean encontrado = false;
+	    Iterator<Tenista> iterator = tenistas.iterator();
+	    while(iterator.hasNext()){
+	        Tenista tenista = iterator.next();
+	        if(tenista.getPassaporte().equals(passaporte)){
+	            iterator.remove();
+	            System.out.println("Tenista removido com sucesso\n");
+	            encontrado = true;
+	            break;
+	        }
+	    }
+	    if(!encontrado){
+	        System.out.println("Tenista nao encontrado com sucesso\n");
 	    
 	}
 	
 }
-
-
-
-
-
+}
 
 
 

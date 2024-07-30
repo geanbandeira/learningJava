@@ -17,7 +17,5 @@ public class Main {
         
         Thread thread2 = new Thread(new MyRunnable());
         thread2.start();
-        
-        
     }
 }

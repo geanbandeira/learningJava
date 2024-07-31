@@ -126,8 +126,6 @@ public class Main{
 	}
 	
 	private static void listarGinastas(){
-	    System.out.println("Numero do documento: ");
-	    String numDoc = scanner.nextLine();
 	    
 	    if(ginastas.isEmpty()){
 	        System.out.println("Nenhum ginasta encontrado\n");
@@ -159,6 +157,25 @@ public class Main{
 	private static void atualizarGinasta(){
 	    System.out.println("Numero do documento: ");
 	    String numDoc = scanner.nextLine();
+	    
+	    Ginasta ginastaEncontrado = null;
+	    for(Ginasta ginasta : ginastas){
+	        if(ginasta.getNumDoc().equals(numDoc)){
+	            ginastaEncontrado = ginasta;
+	        }
+	    }
+	    if(ginastaEncontrado ==null){
+	        System.out.println("Ginasta nao encontrado\n");
+	        return;
+	    }
+	    
+	    System.out.println("Novo Documento: (Deixar em branco para manter o atual)\n");
+	    String novoNumDoc = scanner.nextLine();
+	    
+	    if(!novoNumDoc.isEmpty()){
+	        ginastaEncontrado.setNumDoc(novoNumDoc);
+	    }
+	    System.out.println("Dados do Ginasta atualizado com sucesso\n");
 	}
 	
 	private static void deletarGinasta(){
@@ -178,16 +195,7 @@ public class Main{
 	    if(!encontrado){
 	        System.out.println("Ginasta nao encontrado\n");
 	    }
+	    System.out.println("Ginasta deletado com sucesso\n");
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-

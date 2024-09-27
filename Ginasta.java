@@ -36,7 +36,7 @@ class Contato{
     
     public Contato(String telefone, String email){
         this.telefone = telefone;
-        this.email =email;
+        this.email = email;
     }
     public String getTelefone(){
         return telefone;
